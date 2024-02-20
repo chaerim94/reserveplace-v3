@@ -15,6 +15,23 @@ public class ReservationManagementHateoasProcessor
     public EntityModel<ReservationManagement> process(
         EntityModel<ReservationManagement> model
     ) {
+        model.add(
+            Link
+                .of(
+                    model.getRequiredLink("self").getHref() +
+                    "/reservationinform"
+                )
+                .withRel("reservationinform")
+        );
+        model.add(
+            Link
+                .of(
+                    model.getRequiredLink("self").getHref() +
+                    "/reservationcancelprocessing"
+                )
+                .withRel("reservationcancelprocessing")
+        );
+
         return model;
     }
 }

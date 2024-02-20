@@ -19,6 +19,7 @@
             <Number v-if="editMode" label="PlaceId" v-model="value.placeId" :editMode="editMode" :inputUI="''"/>
             <Number label="Stock" v-model="value.stock" :editMode="editMode" :inputUI="''"/>
             <String label="PlaceNm" v-model="value.placeNm" :editMode="editMode" :inputUI="''"/>
+            <Number label="OrderId" v-model="value.orderId" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions>
@@ -37,14 +38,7 @@
                     text
                     @click="save"
                 >
-                    ReservationInform
-                </v-btn>
-                <v-btn
-                    color="primary"
-                    text
-                    @click="save"
-                >
-                    ReservationCancelProcessing
+                저장
                 </v-btn>
                 <v-btn
                     color="primary"
@@ -66,6 +60,34 @@
         </v-card-actions>
         <v-card-actions>
             <v-spacer></v-spacer>
+            <v-btn
+                v-if="!editMode"
+                color="primary"
+                text
+                @click="openReservationInform"
+            >
+                ReservationInform
+            </v-btn>
+            <v-dialog v-model="reservationInformDiagram" width="500">
+                <ReservationInformCommand
+                    @closeDialog="closeReservationInform"
+                    @reservationInform="reservationInform"
+                ></ReservationInformCommand>
+            </v-dialog>
+            <v-btn
+                v-if="!editMode"
+                color="primary"
+                text
+                @click="openReservationCancelProcessing"
+            >
+                ReservationCancelProcessing
+            </v-btn>
+            <v-dialog v-model="reservationCancelProcessingDiagram" width="500">
+                <ReservationCancelProcessingCommand
+                    @closeDialog="closeReservationCancelProcessing"
+                    @reservationCancelProcessing="reservationCancelProcessing"
+                ></ReservationCancelProcessingCommand>
+            </v-dialog>
         </v-card-actions>
 
         <v-snackbar
@@ -103,6 +125,8 @@
                 timeout: 5000,
                 text: '',
             },
+            reservationInformDiagram: false,
+            reservationCancelProcessingDiagram: false,
         }),
 	async created() {
         },
@@ -199,6 +223,58 @@
             },
             change(){
                 this.$emit('input', this.value);
+            },
+            async reservationInform(params) {
+                try {
+                    if(!this.offline) {
+                        var temp = await axios.put(axios.fixUrl(this.value._links['reservationinform'].href), params)
+                        for(var k in temp.data) {
+                            this.value[k]=temp.data[k];
+                        }
+                    }
+
+                    this.editMode = false;
+                    this.closeReservationInform();
+                } catch(e) {
+                    this.snackbar.status = true
+                    if(e.response && e.response.data.message) {
+                        this.snackbar.text = e.response.data.message
+                    } else {
+                        this.snackbar.text = e
+                    }
+                }
+            },
+            openReservationInform() {
+                this.reservationInformDiagram = true;
+            },
+            closeReservationInform() {
+                this.reservationInformDiagram = false;
+            },
+            async reservationCancelProcessing(params) {
+                try {
+                    if(!this.offline) {
+                        var temp = await axios.put(axios.fixUrl(this.value._links['reservationcancelprocessing'].href), params)
+                        for(var k in temp.data) {
+                            this.value[k]=temp.data[k];
+                        }
+                    }
+
+                    this.editMode = false;
+                    this.closeReservationCancelProcessing();
+                } catch(e) {
+                    this.snackbar.status = true
+                    if(e.response && e.response.data.message) {
+                        this.snackbar.text = e.response.data.message
+                    } else {
+                        this.snackbar.text = e
+                    }
+                }
+            },
+            openReservationCancelProcessing() {
+                this.reservationCancelProcessingDiagram = true;
+            },
+            closeReservationCancelProcessing() {
+                this.reservationCancelProcessingDiagram = false;
             },
         },
     }
