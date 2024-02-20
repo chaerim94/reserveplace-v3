@@ -40,11 +40,11 @@ mvn spring-boot:run
 ```
 - payment
 ```
- http :8088/paymentHistories payId="payId" orderId="orderId" usrId="usrId" amount="amount" status="status" 
+ http :8088/paymentHistories payId="payId" orderId="orderId" usrId="usrId" amount="amount" status="status" placeId="placeId" qty="qty" 
 ```
 - management
 ```
- http :8088/reservationManagements rsvId="rsvId" orderId="orderId" status="status" usrId="usrId" stock="stock" 
+ http :8088/reservationManagements placeId="placeId" stock="stock" placeNm="placeNm" 
 ```
 - notification
 ```

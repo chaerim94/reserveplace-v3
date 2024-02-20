@@ -21,7 +21,12 @@
         },
         data: () => ({
             headers: [
-                { text: "id", value: "id" },
+                { text: "orderId", value: "orderId" },
+                { text: "usrId", value: "usrId" },
+                { text: "placeNm", value: "placeNm" },
+                { text: "placeId", value: "placeId" },
+                { text: "status", value: "status" },
+                { text: "amount", value: "amount" },
             ],
             mypage : [],
         }),

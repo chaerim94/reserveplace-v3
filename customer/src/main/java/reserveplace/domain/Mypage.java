@@ -14,5 +14,11 @@ public class Mypage {
 
     @Id
     //@GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
+    private Long orderId;
+
+    private String usrId;
+    private String placeNm;
+    private Long placeId;
+    private String status;
+    private Double amount;
 }

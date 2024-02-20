@@ -111,7 +111,7 @@
             me.newValue = {
                 'orderId': 0,
                 'placeNm': '',
-                'placeId': '',
+                'placeId': 0,
                 'status': '',
                 'usrId': '',
                 'strDt': '2024-02-20',

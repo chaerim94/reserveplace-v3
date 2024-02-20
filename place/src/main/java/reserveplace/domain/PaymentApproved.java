@@ -14,4 +14,6 @@ public class PaymentApproved extends AbstractEvent {
     private String usrId;
     private String status;
     private Double amount;
+    private Long placeId;
+    private Integer qty;
 }

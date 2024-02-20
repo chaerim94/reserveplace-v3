@@ -66,11 +66,9 @@
             values: [],
             headers: 
                 [
-                    { text: "rsvId", value: "rsvId" },
-                    { text: "orderId", value: "orderId" },
-                    { text: "status", value: "status" },
-                    { text: "usrId", value: "usrId" },
+                    { text: "placeId", value: "placeId" },
                     { text: "stock", value: "stock" },
+                    { text: "placeNm", value: "placeNm" },
                 ],
             reservationManagement : [],
             newValue: {},
@@ -88,11 +86,9 @@
             this.values = temp.data._embedded.reservationmanagements;
 
             this.newValue = {
-                'rsvId': 0,
-                'orderId': 0,
-                'status': '',
-                'usrId': '',
+                'placeId': 0,
                 'stock': 0,
+                'placeNm': '',
             }
         },
         methods: {

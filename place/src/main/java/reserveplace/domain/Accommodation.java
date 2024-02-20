@@ -21,7 +21,7 @@ public class Accommodation {
 
     private String placeNm;
 
-    private String placeId;
+    private Long placeId;
 
     private String status;
 

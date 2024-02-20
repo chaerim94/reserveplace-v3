@@ -18,7 +18,7 @@
         <v-card-text>
             <Number v-if="editMode" label="OrderId" v-model="value.orderId" :editMode="editMode" :inputUI="''"/>
             <String label="PlaceNm" v-model="value.placeNm" :editMode="editMode" :inputUI="''"/>
-            <String label="PlaceId" v-model="value.placeId" :editMode="editMode" :inputUI="''"/>
+            <Number label="PlaceId" v-model="value.placeId" :editMode="editMode" :inputUI="''"/>
             <String label="Status" v-model="value.status" :editMode="editMode" :inputUI="''"/>
             <String label="UsrId" v-model="value.usrId" :editMode="editMode" :inputUI="''"/>
             <Date label="StrDt" v-model="value.strDt" :editMode="editMode" :inputUI="''"/>

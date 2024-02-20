@@ -2,14 +2,11 @@ package reserveplace.domain;
 
 import java.time.LocalDate;
 import java.util.*;
-import lombok.*;
-import reserveplace.domain.*;
+import lombok.Data;
 import reserveplace.infra.AbstractEvent;
 
-//<<< DDD / Domain Event
 @Data
-@ToString
-public class PaymentApproved extends AbstractEvent {
+public class PaymentCancelApproved extends AbstractEvent {
 
     private Long payId;
     private Long orderId;
@@ -18,13 +15,4 @@ public class PaymentApproved extends AbstractEvent {
     private Double amount;
     private Long placeId;
     private Integer qty;
-
-    public PaymentApproved(PaymentHistory aggregate) {
-        super(aggregate);
-    }
-
-    public PaymentApproved() {
-        super();
-    }
 }
-//>>> DDD / Domain Event

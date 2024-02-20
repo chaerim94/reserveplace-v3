@@ -109,11 +109,9 @@
             me.values = temp.data._embedded.reservationManagements;
             
             me.newValue = {
-                'rsvId': 0,
-                'orderId': 0,
-                'status': '',
-                'usrId': '',
+                'placeId': 0,
                 'stock': 0,
+                'placeNm': '',
             }
         },
         methods:{

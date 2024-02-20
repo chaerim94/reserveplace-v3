@@ -21,6 +21,8 @@
             <String label="UsrId" v-model="value.usrId" :editMode="editMode" :inputUI="''"/>
             <Number label="Amount" v-model="value.amount" :editMode="editMode" :inputUI="''"/>
             <String label="Status" v-model="value.status" :editMode="editMode" :inputUI="''"/>
+            <Number label="PlaceId" v-model="value.placeId" :editMode="editMode" :inputUI="''"/>
+            <Number label="Qty" v-model="value.qty" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions>

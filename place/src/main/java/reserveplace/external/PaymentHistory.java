@@ -11,4 +11,6 @@ public class PaymentHistory {
     private String usrId;
     private Double amount;
     private String status;
+    private Long placeId;
+    private Integer qty;
 }

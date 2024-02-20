@@ -20,6 +20,12 @@
             <div>
                 <String label="Status" v-model="item.status" :editMode="editMode" @change="change" />
             </div>
+            <div>
+                <Number label="PlaceId" v-model="item.placeId" :editMode="editMode" @change="change" />
+            </div>
+            <div>
+                <Number label="Qty" v-model="item.qty" :editMode="editMode" @change="change" />
+            </div>
         </v-card-text>
 
         <v-card-actions>

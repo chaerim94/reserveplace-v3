@@ -6,9 +6,7 @@ import lombok.Data;
 @Data
 public class ReservationManagement {
 
-    private Long rsvId;
-    private Long orderId;
-    private String status;
-    private String usrId;
+    private Long placeId;
     private Integer stock;
+    private String placeNm;
 }

@@ -29,6 +29,12 @@
                             <v-list-item-subtitle>
                                 Status :  {{item.status }}
                             </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                PlaceId :  {{item.placeId }}
+                            </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                Qty :  {{item.qty }}
+                            </v-list-item-subtitle>
                         </v-list-item-content>
 
                         <v-list-item-action>
@@ -80,6 +86,10 @@
                 if(val != undefined) {
                     var arr = this.list[val]._links.self.href.split('/');
                     obj['payId'] = arr[4]; 
+                    
+                    
+                    
+                    
                     
                     
                     

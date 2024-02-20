@@ -114,6 +114,8 @@
                 'usrId': '',
                 'amount': 0,
                 'status': '',
+                'placeId': 0,
+                'qty': 0,
             }
         },
         methods:{

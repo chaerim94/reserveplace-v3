@@ -45,6 +45,8 @@
                             
                             
                             
+                            
+                            
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
@@ -53,6 +55,8 @@
                             [ UsrId :  {{data.usrId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Amount :  {{data.amount }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Status :  {{data.status }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ PlaceId :  {{data.placeId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ Qty :  {{data.qty }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -125,6 +129,8 @@
                 'usrId': '',
                 'amount': 0,
                 'status': '',
+                'placeId': 0,
+                'qty': 0,
             }
         },
         methods: {
