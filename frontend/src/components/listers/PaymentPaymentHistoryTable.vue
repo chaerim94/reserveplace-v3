@@ -71,6 +71,8 @@
                     { text: "usrId", value: "usrId" },
                     { text: "amount", value: "amount" },
                     { text: "status", value: "status" },
+                    { text: "placeId", value: "placeId" },
+                    { text: "qty", value: "qty" },
                 ],
             paymentHistory : [],
             newValue: {},
@@ -93,6 +95,8 @@
                 'usrId': '',
                 'amount': 0,
                 'status': '',
+                'placeId': 0,
+                'qty': 0,
             }
         },
         methods: {

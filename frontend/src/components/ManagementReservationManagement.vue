@@ -17,7 +17,6 @@
 
         <v-card-text>
             <Number v-if="editMode" label="PlaceId" v-model="value.placeId" :editMode="editMode" :inputUI="''"/>
-            <Number label="OrderId" v-model="value.orderId" :editMode="editMode" :inputUI="''"/>
             <String label="Status" v-model="value.status" :editMode="editMode" :inputUI="''"/>
             <Number label="Stock" v-model="value.stock" :editMode="editMode" :inputUI="''"/>
             <String label="PlaceNm" v-model="value.placeNm" :editMode="editMode" :inputUI="''"/>

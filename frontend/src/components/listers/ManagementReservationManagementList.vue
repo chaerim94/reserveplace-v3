@@ -44,12 +44,10 @@
                             
                             
                             
-                            
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
                             [ PlaceId :  {{data.placeId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ OrderId :  {{data.orderId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Status :  {{data.status }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Stock :  {{data.stock }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ PlaceNm :  {{data.placeNm }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -121,7 +119,6 @@
             
             this.newValue = {
                 'placeId': 0,
-                'orderId': 0,
                 'status': '',
                 'stock': 0,
                 'placeNm': '',

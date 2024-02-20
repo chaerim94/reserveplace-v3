@@ -12,7 +12,6 @@ import reserveplace.infra.AbstractEvent;
 public class ReservationCancelConfirmed extends AbstractEvent {
 
     private Long placeId;
-    private Long orderId;
     private String status;
     private Integer stock;
     private String placeNm;

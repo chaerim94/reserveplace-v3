@@ -24,7 +24,6 @@ See the README.md files inside the each microservices directory:
 - payment
 - management
 - notification
-- customer
 
 
 ## Run API Gateway (Spring Gateway)
@@ -40,18 +39,15 @@ mvn spring-boot:run
 ```
 - payment
 ```
- http :8088/paymentHistories payId="payId" orderId="orderId" usrId="usrId" amount="amount" status="status" 
+ http :8088/paymentHistories payId="payId" orderId="orderId" usrId="usrId" amount="amount" status="status" placeId="placeId" qty="qty" 
 ```
 - management
 ```
- http :8088/reservationManagements placeId="placeId" orderId="orderId" status="status" stock="stock" placeNm="placeNm" 
+ http :8088/reservationManagements placeId="placeId" status="status" stock="stock" placeNm="placeNm" 
 ```
 - notification
 ```
  http :8088/logs logId="logId" usrId="usrId" 
-```
-- customer
-```
 ```
 
 

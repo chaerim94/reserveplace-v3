@@ -7,7 +7,6 @@ import lombok.Data;
 public class ReservationManagement {
 
     private Long placeId;
-    private Long orderId;
     private String status;
     private Integer stock;
     private String placeNm;

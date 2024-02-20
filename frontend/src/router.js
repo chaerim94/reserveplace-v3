@@ -18,7 +18,6 @@ import NotificationLogManager from "./components/listers/NotificationLogCards"
 import NotificationLogDetail from "./components/listers/NotificationLogDetail"
 
 
-
 export default new Router({
     // mode: 'history',
     base: process.env.BASE_URL,
@@ -66,7 +65,6 @@ export default new Router({
                 name: 'NotificationLogDetail',
                 component: NotificationLogDetail
             },
-
 
 
 
