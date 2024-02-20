@@ -22,5 +22,19 @@ public class PolicyHandler {
 
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='ReservationPlaced'"
+    )
+    public void wheneverReservationPlaced_createPay(@Payload PaymentHistory paymentHistory) {
+        PaymentHistory event = paymentHistory;
+        System.out.println("\n\n==================================================");
+        System.out.println("##### listener IncreaseStock : " + paymentHistory + " / EventInfo : " + event + "\n\n");
+
+        paymentHistory.setStatus("결제완료");
+        PaymentApproved paymentApproved = new PaymentApproved(paymentHistory);
+        paymentApproved.publishAfterCommit();
+    }
 }
 //>>> Clean Arch / Inbound Adaptor

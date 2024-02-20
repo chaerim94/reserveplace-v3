@@ -38,7 +38,7 @@ public class Accommodation {
     @PostPersist
     public void onPostPersist() {
         ReservationPlaced reservationPlaced = new ReservationPlaced(this);
-        reservationPlaced.publishAfterCommit();
+        reservationPlaced.publishAfterCommit(getOrderId());
     }
 
     @PrePersist
@@ -47,7 +47,7 @@ public class Accommodation {
     @PreRemove
     public void onPreRemove() {
         ReservationCanceled reservationCanceled = new ReservationCanceled(this);
-        reservationCanceled.publishAfterCommit();
+        reservationCanceled.publishAfterCommit(getOrderId());
     }
 
     public static AccommodationRepository repository() {
@@ -64,7 +64,7 @@ public class Accommodation {
         ReservationStatusChanged reservationStatusChanged = new ReservationStatusChanged(
             this
         );
-        reservationStatusChanged.publishAfterCommit();
+        reservationStatusChanged.publishAfterCommit(getOrderId());
     }
     //>>> Clean Arch / Port Method
 
