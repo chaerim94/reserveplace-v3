@@ -48,11 +48,11 @@
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
-                            [ RsvId :  {{data.rsvId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ PlaceId :  {{data.placeId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ OrderId :  {{data.orderId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Status :  {{data.status }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ UsrId :  {{data.usrId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Stock :  {{data.stock }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ PlaceNm :  {{data.placeNm }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -120,11 +120,11 @@
             this.values = temp.data._embedded.reservationmanagements;
             
             this.newValue = {
-                'rsvId': 0,
+                'placeId': 0,
                 'orderId': 0,
                 'status': '',
-                'usrId': '',
                 'stock': 0,
+                'placeNm': '',
             }
         },
         methods: {

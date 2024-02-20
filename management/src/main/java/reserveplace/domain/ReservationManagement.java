@@ -17,15 +17,15 @@ public class ReservationManagement {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long rsvId;
+    private Long placeId;
 
     private Long orderId;
 
     private String status;
 
-    private String usrId;
-
     private Integer stock;
+
+    private String placeNm;
 
     @PostPersist
     public void onPostPersist() {

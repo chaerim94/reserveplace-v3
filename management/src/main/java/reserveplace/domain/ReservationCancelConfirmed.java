@@ -11,11 +11,11 @@ import reserveplace.infra.AbstractEvent;
 @ToString
 public class ReservationCancelConfirmed extends AbstractEvent {
 
-    private Long rsvId;
+    private Long placeId;
     private Long orderId;
     private String status;
-    private String usrId;
     private Integer stock;
+    private String placeNm;
 
     public ReservationCancelConfirmed(ReservationManagement aggregate) {
         super(aggregate);

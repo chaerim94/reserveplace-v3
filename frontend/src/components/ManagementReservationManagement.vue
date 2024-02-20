@@ -16,11 +16,11 @@
         </v-card-title >        
 
         <v-card-text>
-            <Number v-if="editMode" label="RsvId" v-model="value.rsvId" :editMode="editMode" :inputUI="''"/>
+            <Number v-if="editMode" label="PlaceId" v-model="value.placeId" :editMode="editMode" :inputUI="''"/>
             <Number label="OrderId" v-model="value.orderId" :editMode="editMode" :inputUI="''"/>
             <String label="Status" v-model="value.status" :editMode="editMode" :inputUI="''"/>
-            <String label="UsrId" v-model="value.usrId" :editMode="editMode" :inputUI="''"/>
             <Number label="Stock" v-model="value.stock" :editMode="editMode" :inputUI="''"/>
+            <String label="PlaceNm" v-model="value.placeNm" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions>

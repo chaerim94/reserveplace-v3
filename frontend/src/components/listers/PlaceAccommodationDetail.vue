@@ -12,7 +12,7 @@
                 <String label="PlaceNm" v-model="item.placeNm" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <String label="PlaceId" v-model="item.placeId" :editMode="editMode" @change="change" />
+                <Number label="PlaceId" v-model="item.placeId" :editMode="editMode" @change="change" />
             </div>
             <div>
                 <String label="Status" v-model="item.status" :editMode="editMode" @change="change" />
