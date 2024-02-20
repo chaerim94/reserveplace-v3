@@ -87,5 +87,28 @@ public class MypageViewHandler {
             e.printStackTrace();
         }
     }
+
+    @StreamListener(KafkaProcessor.INPUT)
+    public void whenReservationStatusChanged_then_UPDATE_3(
+        @Payload ReservationStatusChanged reservationStatusChanged
+    ) {
+        try {
+            if (!reservationStatusChanged.validate()) return;
+            // view 객체 조회
+            Optional<Mypage> mypageOptional = mypageRepository.findByOrderId(
+                reservationStatusChanged.getOrderId()
+            );
+
+            if (mypageOptional.isPresent()) {
+                Mypage mypage = mypageOptional.get();
+                // view 객체에 이벤트의 eventDirectValue 를 set 함
+                mypage.setStatus(reservationStatusChanged.getStatus());
+                // view 레파지 토리에 save
+                mypageRepository.save(mypage);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     //>>> DDD / CQRS
 }
