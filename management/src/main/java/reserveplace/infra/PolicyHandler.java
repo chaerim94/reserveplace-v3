@@ -22,5 +22,23 @@ public class PolicyHandler {
 
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='PaymentApproved'"
+    )
+    public void wheneverReservationConfirmed_create(@Payload ReservationManagement reservationManagement) {
+
+        Integer placeQty = reservationManagementRepository
+        .findByPlaceId(reservationManagement.getPlaceId())
+        .get()
+        .getStock() - 1;
+        
+        reservationManagement.setStock(placeQty);
+        reservationManagementRepository.save(reservationManagement);
+
+        ReservationConfirmed reservationConfirmed = new ReservationConfirmed(reservationManagement);
+        reservationConfirmed.publishAfterCommit();
+    }
 }
 //>>> Clean Arch / Inbound Adaptor

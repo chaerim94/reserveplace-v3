@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import reserveplace.domain.*;
+import java.util.Optional;
 
 //<<< PoEAA / Repository
 @RepositoryRestResource(
@@ -14,4 +15,6 @@ import reserveplace.domain.*;
     path = "reservationManagements"
 )
 public interface ReservationManagementRepository
-    extends PagingAndSortingRepository<ReservationManagement, Long> {}
+    extends PagingAndSortingRepository<ReservationManagement, Long> {
+        Optional<ReservationManagement> findByPlaceId(Long placeId);
+    }
