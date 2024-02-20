@@ -110,7 +110,6 @@
             
             me.newValue = {
                 'placeId': 0,
-                'status': '',
                 'stock': 0,
                 'placeNm': '',
             }

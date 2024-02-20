@@ -67,7 +67,6 @@
             headers: 
                 [
                     { text: "placeId", value: "placeId" },
-                    { text: "status", value: "status" },
                     { text: "stock", value: "stock" },
                     { text: "placeNm", value: "placeNm" },
                 ],
@@ -88,7 +87,6 @@
 
             this.newValue = {
                 'placeId': 0,
-                'status': '',
                 'stock': 0,
                 'placeNm': '',
             }

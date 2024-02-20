@@ -19,8 +19,6 @@ public class ReservationManagement {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long placeId;
 
-    private String status;
-
     private Integer stock;
 
     private String placeNm;

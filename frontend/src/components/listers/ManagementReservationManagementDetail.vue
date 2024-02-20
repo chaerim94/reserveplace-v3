@@ -9,9 +9,6 @@
                 <Number label="PlaceId" v-model="item.placeId" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <String label="Status" v-model="item.status" :editMode="editMode" @change="change" />
-            </div>
-            <div>
                 <Number label="Stock" v-model="item.stock" :editMode="editMode" @change="change" />
             </div>
             <div>
