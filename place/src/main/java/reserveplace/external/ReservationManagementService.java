@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(name = "management", url = "${api.url.management}")
 public interface ReservationManagementService {
     @RequestMapping(
-        method = RequestMethod.POST,
-        path = "/reservationManagements"
+        method = RequestMethod.PUT,
+        path = "/reservationManagements/{id}/reservationinform"
     )
     public void reservationInform(
-        @RequestBody ReservationManagement reservationManagement
+        @PathVariable("id") Long placeId,
+        @RequestBody ReservationInformCommand reservationInformCommand
     );
 }

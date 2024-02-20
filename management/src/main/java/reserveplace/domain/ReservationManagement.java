@@ -6,8 +6,6 @@ import java.util.List;
 import javax.persistence.*;
 import lombok.Data;
 import reserveplace.ManagementApplication;
-import reserveplace.domain.ReservationCancelConfirmed;
-import reserveplace.domain.ReservationConfirmed;
 
 @Entity
 @Table(name = "ReservationManagement_table")
@@ -23,21 +21,10 @@ public class ReservationManagement {
 
     private String placeNm;
 
-    @PostPersist
-    public void onPostPersist() {
-        ReservationConfirmed reservationConfirmed = new ReservationConfirmed(
-            this
-        );
-        reservationConfirmed.publishAfterCommit();
-    }
+    private Long orderId;
 
-    @PostUpdate
-    public void onPostUpdate() {
-        ReservationCancelConfirmed reservationCancelConfirmed = new ReservationCancelConfirmed(
-            this
-        );
-        reservationCancelConfirmed.publishAfterCommit();
-    }
+    @PostPersist
+    public void onPostPersist() {}
 
     public static ReservationManagementRepository repository() {
         ReservationManagementRepository reservationManagementRepository = ManagementApplication.applicationContext.getBean(
@@ -45,5 +32,32 @@ public class ReservationManagement {
         );
         return reservationManagementRepository;
     }
+
+    //<<< Clean Arch / Port Method
+    public void reservationInform(
+        ReservationInformCommand reservationInformCommand
+    ) {
+        //implement business logic here:
+
+        ReservationConfirmed reservationConfirmed = new ReservationConfirmed(
+            this
+        );
+        reservationConfirmed.publishAfterCommit();
+    }
+
+    //>>> Clean Arch / Port Method
+    //<<< Clean Arch / Port Method
+    public void reservationCancelProcessing(
+        ReservationCancelProcessingCommand reservationCancelProcessingCommand
+    ) {
+        //implement business logic here:
+
+        ReservationCancelConfirmed reservationCancelConfirmed = new ReservationCancelConfirmed(
+            this
+        );
+        reservationCancelConfirmed.publishAfterCommit();
+    }
+    //>>> Clean Arch / Port Method
+
 }
 //>>> DDD / Aggregate Root

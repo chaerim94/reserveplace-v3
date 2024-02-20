@@ -5,6 +5,8 @@
         </v-card-title>
 
         <v-card-text>
+            <Number label="Stock" v-model="value.stock" :editMode="editMode"/>
+            <Number label="OrderId" v-model="value.orderId" :editMode="editMode"/>
         </v-card-text>
 
         <v-card-actions>
@@ -40,6 +42,8 @@
             value: {},
         }),
         created() {
+            this.value.stock = 0;
+            this.value.orderId = 0;
         },
         watch: {
         },
