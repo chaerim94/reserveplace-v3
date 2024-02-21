@@ -52,6 +52,26 @@ public class PolicyHandler {
         // Sample Logic //
 
     }
+    
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='PaymentCancelApproved'"
+    )
+    public void wheneverPaymentApproved_ReserveSaga(
+        @Payload PaymentCancelApproved paymentCancelApproved
+    ) {
+        // PaymentCancelApproved event = paymentCancelApproved;
+        // System.out.println(
+        //     "\n\n##### listener ReserveSaga : " + paymentApproved + "\n\n"
+        // );
+        // Sample Logic //
+        Accommodation accommodation = new Accommodation();
+        accommodation.setOrderId(paymentCancelApproved.getOrderId());
+
+        ReservationCanceled reservationCanceled = new ReservationCanceled(accommodation);
+        reservationCanceled.publishAfterCommit(reservationCanceled.getOrderId());
+
+    }
 
     @StreamListener(
         value = KafkaProcessor.INPUT,

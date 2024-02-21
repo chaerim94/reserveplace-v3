@@ -57,6 +57,15 @@ public class Accommodation {
         return accommodationRepository;
     }
 
+    public void reservationCanceled() {
+        //implement business logic here:
+
+        ReservationCanceled reservationCanceled = new ReservationCanceled(
+            this
+        );
+        reservationCanceled.publishAfterCommit(getOrderId());
+    }
+
     //<<< Clean Arch / Port Method
     public void reservationStatusUpdate() {
         //implement business logic here:

@@ -32,13 +32,21 @@ public class PolicyHandler {
         Integer placeQty = reservationManagementRepository
         .findByPlaceId(reservationManagement.getPlaceId())
         .get()
-        .getStock() - 1;
-        
-        reservationManagement.setStock(placeQty);
-        reservationManagementRepository.save(reservationManagement);
+        .getStock(); //- 1;
 
-        ReservationConfirmed reservationConfirmed = new ReservationConfirmed(reservationManagement);
-        reservationConfirmed.publishAfterCommit();
+        if (placeQty <= 0) {
+            // payment의 PaymentCancel 수행
+            ReservationCancelConfirmed reservationCancelConfirmed = new ReservationCancelConfirmed(reservationManagement);
+            reservationCancelConfirmed.publishAfterCommit();
+        } else {
+            placeQty = placeQty--;
+           
+            reservationManagement.setStock(placeQty);
+            reservationManagementRepository.save(reservationManagement);
+    
+            ReservationConfirmed reservationConfirmed = new ReservationConfirmed(reservationManagement);
+            reservationConfirmed.publishAfterCommit();
+        }
     }
 }
 //>>> Clean Arch / Inbound Adaptor

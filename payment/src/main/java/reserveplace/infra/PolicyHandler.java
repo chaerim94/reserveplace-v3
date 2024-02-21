@@ -36,5 +36,19 @@ public class PolicyHandler {
         PaymentApproved paymentApproved = new PaymentApproved(paymentHistory);
         paymentApproved.publishAfterCommit();
     }
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='ReservationCancelConfirmed'"
+    )
+    public void wheneverReservationCancelConfirmed_decreatePay(@Payload PaymentHistory paymentHistory) {
+        // PaymentHistory event = paymentHistory;
+        // System.out.println("\n\n==================================================");
+        // System.out.println("##### listener IncreaseStock : " + paymentHistory + " / EventInfo : " + event + "\n\n");
+
+        paymentHistory.setStatus("결제취소");
+        PaymentCancelApproved paymentCancelApproved = new PaymentCancelApproved(paymentHistory);
+        paymentCancelApproved.publishAfterCommit();
+    }
 }
 //>>> Clean Arch / Inbound Adaptor
