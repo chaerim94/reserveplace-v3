@@ -30,10 +30,10 @@ public class PolicyHandler {
     public void wheneverReservationPlaced_createPay(@Payload PaymentHistory paymentHistory) {
 
         paymentHistory.setStatus("결제완료");
-        paymentHistoryRepository.save(paymentHistory);
+        //paymentHistoryRepository.save(paymentHistory);
 
-     //   PaymentApproved paymentApproved = new PaymentApproved(paymentHistory);
-     //   paymentApproved.publishAfterCommit();
+        PaymentApproved paymentApproved = new PaymentApproved(paymentHistory);
+        paymentApproved.publishAfterCommit();
     }
 
     @StreamListener(
@@ -43,7 +43,7 @@ public class PolicyHandler {
     public void wheneverReservationCancelConfirmed_decreatePay(@Payload PaymentHistory paymentHistory) {
 
         paymentHistory.setStatus("결제취소");
-        paymentHistoryRepository.save(paymentHistory);
+        // paymentHistoryRepository.save(paymentHistory);
 
         PaymentCancelApproved paymentCancelApproved = new PaymentCancelApproved(paymentHistory);
         paymentCancelApproved.publishAfterCommit();
