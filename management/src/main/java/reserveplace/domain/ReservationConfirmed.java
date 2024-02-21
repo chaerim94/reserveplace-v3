@@ -13,7 +13,6 @@ public class ReservationConfirmed extends AbstractEvent {
 
     private Long placeId;
     private Integer stock;
-    private String placeNm;
     private Long orderId;
 
     public ReservationConfirmed(ReservationManagement aggregate) {

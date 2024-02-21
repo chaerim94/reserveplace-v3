@@ -68,7 +68,6 @@
                 [
                     { text: "placeId", value: "placeId" },
                     { text: "stock", value: "stock" },
-                    { text: "placeNm", value: "placeNm" },
                     { text: "orderId", value: "orderId" },
                 ],
             reservationManagement : [],
@@ -89,7 +88,6 @@
             this.newValue = {
                 'placeId': 0,
                 'stock': 0,
-                'placeNm': '',
                 'orderId': 0,
             }
         },
