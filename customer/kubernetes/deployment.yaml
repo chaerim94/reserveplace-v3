@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: customer
-          image: chather/customer:latest
+          image: chather/customer:0221
           ports:
             - containerPort: 8080
           readinessProbe:
