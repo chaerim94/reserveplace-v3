@@ -111,7 +111,6 @@
             me.newValue = {
                 'placeId': 0,
                 'stock': 0,
-                'placeNm': '',
                 'orderId': 0,
             }
         },

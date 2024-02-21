@@ -19,8 +19,6 @@ public class ReservationManagement {
 
     private Integer stock;
 
-    private String placeNm;
-
     private Long orderId;
 
     @PostPersist

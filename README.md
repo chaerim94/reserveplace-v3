@@ -44,7 +44,7 @@ mvn spring-boot:run
 ```
 - management
 ```
- http :8088/reservationManagements placeId="placeId" stock="stock" placeNm="placeNm" orderId="orderId" 
+ http :8088/reservationManagements placeId="placeId" stock="stock" orderId="orderId" 
 ```
 - notification
 ```
