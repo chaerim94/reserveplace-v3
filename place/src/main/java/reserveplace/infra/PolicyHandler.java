@@ -86,7 +86,8 @@ public class PolicyHandler {
             "\n\n##### listener ReserveSaga : " + reservationConfirmed + "\n\n"
         );
         // Sample Logic //
-
+        ReservationStatusChanged reservationStatusChanged = new ReservationStatusChanged();
+        reservationStatusChanged.publishAfterCommit(reservationConfirmed.getOrderId());
     }
 
     @StreamListener(
