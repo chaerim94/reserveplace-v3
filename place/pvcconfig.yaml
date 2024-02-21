@@ -1,0 +1,28 @@
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: place
+  labels:
+    app: "place"
+spec:
+  selector:
+    matchLabels:
+      app: "place"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: "place"
+    spec:
+      containers:
+      - name: "place"
+        image: chather/place:0222
+        ports:
+          - containerPort: 8080
+        volumeMounts:
+          - mountPath: "/mnt/data"
+            name: volume
+      volumes:
+      - name: volume
+        persistentVolumeClaim:
+          claimName: ebs-pvc
