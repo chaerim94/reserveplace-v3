@@ -67,7 +67,8 @@ public class PolicyHandler {
         // Sample Logic //
         Accommodation accommodation = new Accommodation();
         accommodation.setOrderId(paymentCancelApproved.getOrderId());
-
+        accommodation.setStatus("예약취소");
+        
         ReservationCanceled reservationCanceled = new ReservationCanceled(accommodation);
         reservationCanceled.publishAfterCommit(reservationCanceled.getOrderId());
 

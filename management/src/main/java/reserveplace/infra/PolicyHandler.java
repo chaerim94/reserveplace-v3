@@ -34,18 +34,16 @@ public class PolicyHandler {
         .get()
         .getStock(); //- 1;
 
-        if (placeQty <= 0) {
-            // payment의 PaymentCancel 수행
-            ReservationCancelConfirmed reservationCancelConfirmed = new ReservationCancelConfirmed(reservationManagement);
-            reservationCancelConfirmed.publishAfterCommit();
-        } else {
-            placeQty = placeQty--;
-           
-            reservationManagement.setStock(placeQty);
+        if (placeQty > 0) {
+            reservationManagement.setStock(placeQty - 1);
             reservationManagementRepository.save(reservationManagement);
     
             ReservationConfirmed reservationConfirmed = new ReservationConfirmed(reservationManagement);
             reservationConfirmed.publishAfterCommit();
+        } else {
+            // payment의 PaymentCancel 수행
+            ReservationCancelConfirmed reservationCancelConfirmed = new ReservationCancelConfirmed(reservationManagement);
+            reservationCancelConfirmed.publishAfterCommit();
         }
     }
 }

@@ -28,13 +28,12 @@ public class PolicyHandler {
         condition = "headers['type']=='ReservationPlaced'"
     )
     public void wheneverReservationPlaced_createPay(@Payload PaymentHistory paymentHistory) {
-        PaymentHistory event = paymentHistory;
-        System.out.println("\n\n==================================================");
-        System.out.println("##### listener IncreaseStock : " + paymentHistory + " / EventInfo : " + event + "\n\n");
 
         paymentHistory.setStatus("결제완료");
-        PaymentApproved paymentApproved = new PaymentApproved(paymentHistory);
-        paymentApproved.publishAfterCommit();
+        paymentHistoryRepository.save(paymentHistory);
+
+     //   PaymentApproved paymentApproved = new PaymentApproved(paymentHistory);
+     //   paymentApproved.publishAfterCommit();
     }
 
     @StreamListener(
@@ -42,11 +41,10 @@ public class PolicyHandler {
         condition = "headers['type']=='ReservationCancelConfirmed'"
     )
     public void wheneverReservationCancelConfirmed_decreatePay(@Payload PaymentHistory paymentHistory) {
-        // PaymentHistory event = paymentHistory;
-        // System.out.println("\n\n==================================================");
-        // System.out.println("##### listener IncreaseStock : " + paymentHistory + " / EventInfo : " + event + "\n\n");
 
         paymentHistory.setStatus("결제취소");
+        paymentHistoryRepository.save(paymentHistory);
+
         PaymentCancelApproved paymentCancelApproved = new PaymentCancelApproved(paymentHistory);
         paymentCancelApproved.publishAfterCommit();
     }
