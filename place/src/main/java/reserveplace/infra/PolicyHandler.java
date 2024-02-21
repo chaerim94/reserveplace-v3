@@ -81,12 +81,17 @@ public class PolicyHandler {
     public void wheneverReservationConfirmed_ReserveSaga(
         @Payload ReservationConfirmed reservationConfirmed
     ) {
-        ReservationConfirmed event = reservationConfirmed;
-        System.out.println(
-            "\n\n##### listener ReserveSaga : " + reservationConfirmed + "\n\n"
-        );
+        // ReservationConfirmed event = reservationConfirmed;
+        // System.out.println(
+        //     "\n\n##### listener ReserveSaga : " + reservationConfirmed + "\n\n"
+        // );
         // Sample Logic //
-        ReservationStatusChanged reservationStatusChanged = new ReservationStatusChanged();
+        Accommodation accommodation = new Accommodation();
+        accommodation = accommodationRepository.findById(reservationConfirmed.getOrderId()).get();
+        accommodation.setStatus("예약완료");
+        accommodationRepository.save(accommodation);
+
+        ReservationStatusChanged reservationStatusChanged = new ReservationStatusChanged(accommodation);
         reservationStatusChanged.publishAfterCommit(reservationConfirmed.getOrderId());
     }
 
