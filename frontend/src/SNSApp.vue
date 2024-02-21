@@ -70,18 +70,6 @@
                     </v-list-item>
 
 
-                    <v-list-item
-                        class="px-2"
-                        key="logs"
-                        to="/notifications/logs"
-                        @click="changeUrl()"
-                        color="primary"
-                        style="font-weight:700;"
-                    >
-                        Log
-                    </v-list-item>
-
-
 
                 </v-list>
             </v-navigation-drawer>
@@ -180,13 +168,6 @@ export default {
                 description: '', 
                 key: 'reservationManagements', 
                 route: '/managements/reservationManagements',
-                ImageUrl: '',
-            },
-            { 
-                title: 'Log', 
-                description: '', 
-                key: 'logs', 
-                route: '/notifications/logs',
                 ImageUrl: '',
             },
             

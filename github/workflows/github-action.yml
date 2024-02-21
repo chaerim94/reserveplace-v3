@@ -32,7 +32,6 @@ jobs:
           mvn clean package -f ./place/pom.xml
           mvn clean package -f ./payment/pom.xml
           mvn clean package -f ./management/pom.xml
-          mvn clean package -f ./notification/pom.xml
           mvn clean package -f ./customer/pom.xml
 
       - name: Docker Build and push for Place
@@ -64,16 +63,6 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository }}/management:latest
             ghcr.io/${{ github.repository }}/management:${{ github.ref_name }}
-            
-      - name: Docker Build and push for Notification
-        uses: docker/build-push-action@v4
-        with:
-          context: ./notification
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: |
-            ghcr.io/${{ github.repository }}/notification:latest
-            ghcr.io/${{ github.repository }}/notification:${{ github.ref_name }}
             
       - name: Docker Build and push for Customer
         uses: docker/build-push-action@v4

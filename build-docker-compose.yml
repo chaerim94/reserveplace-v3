@@ -65,20 +65,6 @@ services:
       - ./management:/usr/src
       - ./maven-repo:/root/.m2
       
-  notification:
-    depends_on: 
-      - kafka
-    image: adoptopenjdk/maven-openjdk11:latest
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    command: mvn spring-boot:run
-    ports:
-      - 8085:8085
-    working_dir: /usr/src
-    volumes:
-      - ./notification:/usr/src
-      - ./maven-repo:/root/.m2
-      
   customer:
     depends_on: 
       - kafka
@@ -87,7 +73,7 @@ services:
       - SPRING_PROFILES_ACTIVE=docker
     command: mvn spring-boot:run
     ports:
-      - 8086:8086
+      - 8085:8085
     working_dir: /usr/src
     volumes:
       - ./customer:/usr/src

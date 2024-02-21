@@ -23,7 +23,6 @@ See the README.md files inside the each microservices directory:
 - place
 - payment
 - management
-- notification
 - customer
 
 
@@ -45,10 +44,6 @@ mvn spring-boot:run
 - management
 ```
  http :8088/reservationManagements placeId="placeId" stock="stock" orderId="orderId" 
-```
-- notification
-```
- http :8088/logs logId="logId" usrId="usrId" 
 ```
 - customer
 ```

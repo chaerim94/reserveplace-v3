@@ -21,12 +21,8 @@ spring:
           uri: http://localhost:8084
           predicates:
             - Path=/reservationManagements/**, 
-        - id: notification
-          uri: http://localhost:8085
-          predicates:
-            - Path=/logs/**, 
         - id: customer
-          uri: http://localhost:8086
+          uri: http://localhost:8085
           predicates:
             - Path=, 
         - id: frontend
@@ -65,10 +61,6 @@ spring:
           uri: http://management:8080
           predicates:
             - Path=/reservationManagements/**, 
-        - id: notification
-          uri: http://notification:8080
-          predicates:
-            - Path=/logs/**, 
         - id: customer
           uri: http://customer:8080
           predicates:
