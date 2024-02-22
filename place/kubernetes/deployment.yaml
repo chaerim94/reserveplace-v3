@@ -16,16 +16,16 @@ spec:
     spec:
       containers:
         - name: place
-          image: chather/place:0224
+          image: chather/place:0227
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
-          env:
-            - name: ORDER_LOG_LEVEL
-              valueFrom:
-                configMapKeyRef:
-                  name: config-dev
-                  key: ORDER_LOG_LEVEL
+          # env:
+          #   - name: ORDER_LOG_LEVEL
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: config-dev
+          #         key: ORDER_LOG_LEVEL
           resources:
             requests:
               cpu: "200m"  
@@ -41,7 +41,8 @@ spec:
             httpGet:
               path: '/actuator/health'
               port: 8080
-            initialDelaySeconds: 120
+            initialDelaySeconds: 15
             timeoutSeconds: 2
+            successThreshold: 1
             periodSeconds: 5
-            failureThreshold: 5
+            failureThreshold: 3
