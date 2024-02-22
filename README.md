@@ -314,8 +314,8 @@ kubectl get deployment metrics-server -n kube-system
 - deployment.yaml 아래 추가
 ```
 containers:
-        - name: admin
-          image: khsh5592/admin:240221
+        - name: place
+          image: chather/place:0227
           ports:
             - containerPort: 8080
           resources:
