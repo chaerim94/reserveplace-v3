@@ -293,6 +293,7 @@ phases:
 #  paths:
 #    - '/root/.m2/**/*'
 ```
+![image](https://github.com/chaerim94/reserveplace-v3/assets/39048893/6aa6997b-47de-4d09-a4c5-9a4525c0aa47)
 
 - 프로젝트 빌드 결과
 ![KakaoTalk_20240222_172420432_01](https://github.com/chaerim94/food-delivery/assets/39048893/dd8b4f16-d326-4143-920f-c7b4c42798f1)
